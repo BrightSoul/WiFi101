@@ -264,6 +264,49 @@ sint8 m2m_crypto_rsa_sign_verify(uint8 *pu8N, uint16 u16NSize, uint8 *pu8E, uint
 */
 sint8 m2m_crypto_rsa_sign_gen(uint8 *pu8N, uint16 u16NSize, uint8 *pu8d, uint16 u16dSize, uint8 *pu8SignedMsgHash, 
 					   uint16 u16HashLength, uint8 *pu8RsaSignature);
+
+					   
+/*!
+@fn	\
+	sint8 m2m_rsa_sign_gen(uint8 *pu8N, uint16 u16NSize, uint8 *pu8d, uint16 u16dSize, uint8 *pu8SignedMsgHash, \
+		uint16 u16HashLength, uint8 *pu8RsaSignature);
+	
+@brief	Performs modular exponentiation
+
+	This function performs modular exponentiation
+
+@param[in]	pu8X
+				The cypher buffer
+				
+@param[in]	u16XSize
+				The size of the cypher buffer
+				
+@param[in]	pu8E
+				The exponent buffer
+				
+@param[in]	u16ESize
+				The size of the exponent buffer
+
+@param[in]	pu8M
+				The modulus buffer
+				
+@param[in]	u16MSize
+				The size of the modulus buffer
+				
+@param[out] pu8R
+				The result buffer
+				
+@param[in]	u16RSize
+				The length of the result buffer
+
+*/
+void BigInt_ModExp
+(	
+ uint8	*pu8X,	uint16	u16XSize,
+ uint8	*pu8E,	uint16	u16ESize,
+ uint8	*pu8M,	uint16	u16MSize,
+ uint8	*pu8R,	uint16	u16RSize
+ );
 #ifdef __cplusplus
 }
 #endif
