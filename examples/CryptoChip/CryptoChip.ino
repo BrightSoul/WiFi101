@@ -18,10 +18,10 @@ void setup() {
 
 CryptoChip chip;
 void loop() {
-  byte cypher[1] = { 0x03 };
-  byte exponent[1] = { 0x02 };
-  byte modulus[1] = { 0x05 };
-  byte result[1];
+  uint8_t cypher[1] = { 0x03 };
+  uint8_t exponent[1] = { 0x02 };
+  uint8_t modulus[1] = { 0x07 };
+  uint8_t result[1];
 
   chip.modularExponentiation(cypher, 1, exponent, 1, modulus, 1, result, 1);
 
@@ -30,7 +30,7 @@ void loop() {
   delay(2000);
 }
 
-void printHex(byte *buffer, const word length) {
+void printHex(uint8_t *buffer, const uint16_t length) {
   for (word szPos=0; szPos < length; szPos++)
   {
     Serial.print(F("0x"));
