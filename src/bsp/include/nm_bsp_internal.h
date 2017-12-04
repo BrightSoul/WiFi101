@@ -53,6 +53,7 @@
 #endif
 
 #ifdef ARDUINO
+#define CONF_CRYPTO_HW
 #define CONF_PERIPH
 #endif
 

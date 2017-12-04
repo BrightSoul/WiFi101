@@ -14,22 +14,20 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
+}
 
-  byte cypher[1] = { 0x02 };
-  byte exponent[1] = { 0x03 };
-  byte modulus[1] = { 0x01 };
+CryptoChip chip;
+void loop() {
+  byte cypher[1] = { 0x03 };
+  byte exponent[1] = { 0x02 };
+  byte modulus[1] = { 0x05 };
   byte result[1];
 
-  CryptoChip chip;
   chip.modularExponentiation(cypher, 1, exponent, 1, modulus, 1, result, 1);
 
   Serial.print("Result is: ");
   printHex(result, 1);
-
-}
-
-void loop() {
-  delay(10000);
+  delay(2000);
 }
 
 void printHex(byte *buffer, const word length) {
