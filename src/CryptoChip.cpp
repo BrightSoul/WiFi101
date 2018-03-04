@@ -2,6 +2,7 @@
   CryptoChip.cpp
 */
 #include <Arduino.h>
+#include <WiFi101.h>
 #include "CryptoChip.h"
 extern "C" {
 	#include "driver/include/m2m_crypto.h"
@@ -10,7 +11,13 @@ extern "C" {
 tstrM2mSha256Ctxt	strSha256;
 CryptoChip::CryptoChip()
 {
+	//Serial.begin(115200);
 	nm_bsp_init();
+	//m2m_wifi_download_mode();
+	if (m2m_wifi_download_mode() != M2M_SUCCESS) {
+        Serial.println(F("Failed to put the WiFi module in download mode")); 
+    }
+	//Serial.println("Iniziato");
 }
 
 void CryptoChip::modularExponentiation(uint8_t *cypher, uint16_t cypherSize, uint8_t *exponent, uint16_t exponentSize, uint8_t *modulus, uint16_t modulusSize, uint8_t *result, uint16_t resultSize)

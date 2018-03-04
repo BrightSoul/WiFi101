@@ -6,7 +6,6 @@
 #include <SPI.h>
 #include <CryptoChip.h>
 #define M2M_SHA256_DIGEST_LEN			32
-CryptoChip chip;
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -17,7 +16,7 @@ void setup() {
 }
 
 void loop() {
-
+CryptoChip chip;
 /*char	gacRsaSignedMessage[] = 
 	"THIS SOFTWARE IS PROVIDED BY ATMEL \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,"\
 	" THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY AND"\
